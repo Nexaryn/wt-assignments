@@ -1,0 +1,15 @@
+* { margin: 0; padding: 0; box-shadow: border-box; }
+body { font-family: sans-serif; transition: 0.3s; line-height: 1.6; }
+nav { background: #333; color: white; display: flex; justify-content: space-between; padding: 1rem 5%; align-items: center; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+header { text-align: center; padding: 100px 20px; background: #007bff; color: white; }
+button { margin-top: 20px; padding: 10px 25px; cursor: pointer; border: none; border-radius: 5px; font-size: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 5%; }
+.card { background: white; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* Responsive Media Query */
+@media (max-width: 600px) {
+    nav { flex-direction: column; }
+    header { padding: 50px 20px; }
+}
