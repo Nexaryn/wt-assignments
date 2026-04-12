@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolStash — Pro Rental Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="nav" id="mainNav" style="display:none;">
+        <a href="#" class="logo" onclick="location.reload()">Tool<span>Stash</span></a>
+        <ul class="nav-links">
+            <li onclick="showPage('home')">Home</li>
+            <li>
+                Filter by Type ▾
+                <ul class="dropdown">
+                    <li onclick="filterByType('Power Tools')">Power Tools</li>
+                    <li onclick="filterByType('Gardening')">Gardening</li>
+                    <li onclick="filterByType('Cleaning')">Cleaning</li>
+                    <li onclick="filterByType('All')">Show All</li>
+                </ul>
+            </li>
+            <li onclick="location.reload()">Logout</li>
+        </ul>
+    </nav>
+
+    <main id="view-container">
+        <section id="page-login" class="page active">
+            <div class="form-card text-center">
+                <h2 class="logo mb-4">Tool<span>Stash</span> Login</h2>
+                <p id="loginError" class="err-msg"></p>
+                <input type="text" id="loginUser" class="form-input" placeholder="Username">
+                <input type="password" id="loginPass" class="form-input" placeholder="Password">
+                <button class="btn-p w-100 mt-3" onclick="handleLogin()">Login</button>
+                <p class="mt-3">New user? <a href="#" onclick="showPage('register')" style="color:var(--p)">Register here</a></p>
+            </div>
+        </section>
+
+        <section id="page-register" class="page">
+            <div class="form-card text-center">
+                <h2 class="logo mb-4">Create Account</h2>
+                <p id="regError" class="err-msg"></p>
+                <input type="text" id="regUser" class="form-input" placeholder="Username (min 6 alphabets)">
+                <input type="email" id="regEmail" class="form-input" placeholder="Email">
+                <input type="password" id="regPass" class="form-input" placeholder="Password (min 6 chars)">
+                <input type="text" id="regPhone" class="form-input" placeholder="Phone Number (10 digits)">
+                <button class="btn-p w-100 mt-3" onclick="handleRegistration()">Register</button>
+                <p class="mt-3">Already have an account? <a href="#" onclick="showPage('login')" style="color:var(--p)">Login</a></p>
+            </div>
+        </section>
+
+        <section id="page-home" class="page">
+            <header class="hero">
+                <div class="bento main">
+                    <h1 id="heroTitle">Professional Gear, Simplified.</h1>
+                    <div class="search-container">
+                        <input type="text" id="toolSearch" placeholder="Search for equipment...">
+                        <button class="btn-search" onclick="renderTools()">Search</button>
+                    </div>
+                </div>
+                <div class="bento side">
+                    <div class="hub-icon">✓</div>
+                    <h2>Verified Hub</h2>
+                    <p>Insured & inspected tools.</p>
+                    <button class="btn-outline">Learn More</button>
+                </div>
+            </header>
+            
+            <h2 class="section-header">Trending Rentals</h2>
+            <div class="grid" id="toolsGrid"></div>
+        </section>
+
+        <section id="page-bill" class="page container mt-4">
+            <div class="form-card">
+                <h3>Rental Summary</h3>
+                <div id="billDetails"></div>
+                <div id="feedbackArea" style="display:none;" class="mt-4 pt-3 border-top">
+                    <label class="fw-bold mb-2">Rate experience:</label>
+                    <select id="rating" class="form-input">
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="3">⭐⭐⭐ (3/5)</option>
+                        <option value="2">⭐⭐ (2/5)</option>
+                        <option value="1">⭐ (1/5)</option>
+                    </select>
+                    <button class="btn-p w-100 mt-2" onclick="submitFeedback()">Confirm & Pay</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
